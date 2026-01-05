@@ -12,6 +12,10 @@ const routes: Routes = [
   {
     path: 'verify',
     loadChildren: () => import('./pages/verify/verify.module').then( m => m.VerifyPageModule)
+  },
+  {
+    path: 'verify1',
+    loadChildren: () => import('./pages/verify1/verify1.module').then( m => m.Verify1PageModule)
   }
 
 ];
