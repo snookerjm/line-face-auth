@@ -1,13 +1,27 @@
-<ion-header [translucent]="true">
+<!-- src/app/pages/register/register.page.html -->
+<ion-header>
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-title>ลงทะเบียนผ่าน Line OA</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <p-card header="ข้อมูลผู้ใช้">
+    <div class="p-field">
+      <label>ชื่อแสดงผล</label>
+      <input pInputText [(ngModel)]="displayName" />
+    </div>
+    <div class="p-field">
+      <label>ข้อมูลติดต่อ</label>
+      <input pInputText [(ngModel)]="contact" placeholder="เบอร์โทร/อีเมล" />
+    </div>
+  </p-card>
+
+  <p-card header="บันทึกใบหน้า">
+    <video #video width="320" height="240" style="border:1px solid #ccc"></video>
+    <div class="p-mt-2">
+      <button pButton label="บันทึก" icon="pi pi-check" (click)="onSubmit()" [disabled]="loading"></button>
+    </div>
+    <p *ngIf="message" class="p-mt-2">{{ message }}</p>
+  </p-card>
 </ion-content>

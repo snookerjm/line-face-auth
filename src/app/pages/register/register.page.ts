@@ -3,15 +3,17 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { LiffService } from '../../services/liff/liff.service';
 import { FaceService } from '../../services/face/face.service';
 import { RegistrationService } from '../../services/registration/registration.service';
-import { environment } from '../../../environments/environment';
+
 import { IonicModule } from "@ionic/angular";
 import { CardModule } from "primeng/card";
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
-  imports: [IonicModule, CardModule]
+  imports: [IonicModule, CardModule, FormsModule, CommonModule],
 })
 export class RegisterPage implements OnInit {
   @ViewChild('video') videoRef!: ElementRef<HTMLVideoElement>;
