@@ -4,21 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RegisterPageRoutingModule } from './register-routing.module';
+import { HomePageRoutingModule } from './home-routing.module';
 
-import { RegisterPage } from './register.page';
-
-import { CardModule } from 'primeng/card';
-
+import { HomePage } from './home.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RegisterPageRoutingModule,
-    CardModule,
-    RegisterPage
+    HomePageRoutingModule,
+    HomePage
   ],
 })
-export class RegisterPageModule {}
+export class HomePageModule {}

@@ -1,27 +1,25 @@
-<!-- src/app/pages/register/register.page.html -->
 <ion-header>
   <ion-toolbar>
-    <ion-title>ลงทะเบียนผ่าน Line OA</ion-title>
+    <ion-title>สมัครสมาชิก</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <p-card header="ข้อมูลผู้ใช้">
-    <div class="p-field">
-      <label>ชื่อแสดงผล</label>
-      <input pInputText [(ngModel)]="displayName" />
-    </div>
-    <div class="p-field">
-      <label>ข้อมูลติดต่อ</label>
-      <input pInputText [(ngModel)]="contact" placeholder="เบอร์โทร/อีเมล" />
-    </div>
-  </p-card>
+  <form (ngSubmit)="submit()">
+    <ion-item>
+      <ion-label position="floating">ชื่อ</ion-label>
+      <ion-input [(ngModel)]="firstName" name="firstName" required></ion-input>
+    </ion-item>
 
-  <p-card header="บันทึกใบหน้า">
-    <video #video width="320" height="240" style="border:1px solid #ccc"></video>
-    <div class="p-mt-2">
-      <button pButton label="บันทึก" icon="pi pi-check" (click)="onSubmit()" [disabled]="loading"></button>
+    <ion-item>
+      <ion-label position="floating">นามสกุล</ion-label>
+      <ion-input [(ngModel)]="lastName" name="lastName" required></ion-input>
+    </ion-item>
+
+    <div class="camera-box">
+      <video #video autoplay playsinline></video>
     </div>
-    <p *ngIf="message" class="p-mt-2">{{ message }}</p>
-  </p-card>
+
+    <ion-button expand="block" type="submit">สมัครและสแกนใบหน้า</ion-button>
+  </form>
 </ion-content>

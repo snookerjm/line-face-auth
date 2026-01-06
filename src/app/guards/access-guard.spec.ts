@@ -1,17 +1,26 @@
 import { TestBed } from '@angular/core/testing';
-import { CanActivateFn } from '@angular/router';
+import { Router } from '@angular/router';
+import { AccessGuard } from './access-guard';
 
-import { accessGuard } from './access-guard';
-
-describe('accessGuard', () => {
-  const executeGuard: CanActivateFn = (...guardParameters) => 
-      TestBed.runInInjectionContext(() => accessGuard(...guardParameters));
+describe('AccessGuard', () => {
+  let guard: AccessGuard;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        AccessGuard,
+        { provide: Router, useValue: { navigateByUrl: jasmine.createSpy('navigateByUrl') } }
+      ]
+    });
+    guard = TestBed.inject(AccessGuard);
   });
 
   it('should be created', () => {
-    expect(executeGuard).toBeTruthy();
+    expect(guard).toBeTruthy();
+  });
+
+  it('should return a Promise<boolean>', async () => {
+    const result = await guard.canActivate();
+    expect(typeof result).toBe('boolean');
   });
 });

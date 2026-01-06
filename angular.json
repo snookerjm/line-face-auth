@@ -32,12 +32,8 @@
               }
             ],
             "styles": [
-              "src/global.scss", "src/theme/variables.scss",
-              "src/styles.css",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/saga-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css"
-
+              "src/global.scss",
+              "src/theme/variables.scss"
             ],
             "scripts": []
           },
@@ -118,7 +114,10 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": [
+              "src/global.scss",
+              "src/theme/variables.scss"
+            ],
             "scripts": []
           },
           "configurations": {

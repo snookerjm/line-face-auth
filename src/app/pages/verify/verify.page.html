@@ -1,21 +1,15 @@
-<!-- src/app/pages/verify/verify.page.html -->
 <ion-header>
   <ion-toolbar>
-    <ion-title>ตรวจสอบการเข้าใช้งาน</ion-title>
+    <ion-title>ยืนยันตัวตน</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <p-card header="ตรวจสอบใบหน้า">
-    <video #video width="320" height="240" style="border:1px solid #ccc"></video>
-    <p class="p-mt-2">{{ status }}</p>
+  <p>กรุณาสแกนใบหน้าเพื่อยืนยันตัวตน</p>
 
-    <div *ngIf="accessGranted" class="p-mt-2">
-      <button pButton label="เข้าสู่ระบบ" icon="pi pi-arrow-right" routerLink="/home"></button>
-    </div>
-    <div *ngIf="!accessGranted" class="p-mt-2">
-      <p-message severity="warn" text="ไม่สามารถเข้าได้ กรุณาสมัครผ่าน Line OA"></p-message>
-      <a pButton label="ไปยังหน้าลงทะเบียน" routerLink="/register"></a>
-    </div>
-  </p-card>
+  <div class="camera-box">
+    <video #video autoplay playsinline></video>
+  </div>
+
+  <ion-button expand="block" (click)="verifyNow()">สแกนเพื่อยืนยัน</ion-button>
 </ion-content>
